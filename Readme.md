@@ -15,7 +15,7 @@ VisualStudio2022‘Î‰ž
 ### Ž‘—¿ì¬Žž‚ÌŽQlŽ‘—¿
 
 https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
-
+```mermaid
 flowchart AppFlow
   subgraph App
     subgraph Menu
@@ -24,3 +24,4 @@ flowchart AppFlow
   end
 end
 User --> App --> Display
+```
