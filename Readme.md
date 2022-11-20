@@ -15,11 +15,16 @@ VisualStudio2022対応
 ### 資料作成時の参考資料
 
 https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
+
+### メニュー画面の最終的な遷移(ReleasePlan LastFlow)
 ```mermaid
 flowchart LR
     subgraph App
         subgraph Menu
-           userMemo -->userMemoDetail
+           userMemoTab -->userMemoDetail
+           itemListTab -->itemList
+           facilitySearchTab -->facilitySearchDisplay
+           medicinedinputFormTab --> medicinedinputForm
         end
     end
 User --> App --> Display
