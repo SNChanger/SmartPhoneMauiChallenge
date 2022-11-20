@@ -16,12 +16,9 @@ VisualStudio2022‘Î‰ž
 
 https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
 ```mermaid
-flowchart AppFlow
-    subgraph App
-        subgraph Menu
-           userMemo --> userMemoDetail
-        end
-    end
-end
-User --> App --> Display
+flowchart AppFlow;
+    subgraph App;
+        subgraph Menu;
+           userMemo --> userMemoDetail;s
+User --> App --> Display;
 ```
