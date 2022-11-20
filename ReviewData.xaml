@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartPhoneMauiChallenge.ReviewData"
+             Title="ReviewData">
+    <VerticalStackLayout>
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="dotnet_bot.png"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64" />
+            <Label FontSize="22" FontAttributes="Bold" Text="Notes" VerticalOptions="End" />
+            <Label FontSize="22" Text="v1.0" VerticalOptions="End" />
+        </HorizontalStackLayout>
+
+        <Label Text="....さんの記録" />
+        <Label Text="xxxx/xx/xx" />
+        <Label Text="調剤実施日" />
+        <Label Text="薬局名" />
+        <Editor x:Name="saleStoreName"
+        Placeholder="購入したときの薬局名を入力してくださいs"
+        HeightRequest="50"
+        TextChanged="OnStoreNameEditorTextChanged"
+        Completed="OnStoreNameEditorCompleted" />        
+        <Label Text="医療機関名" />
+        <Editor x:Name="saleHospitalName"
+        Placeholder="法人名を入力してください"
+        HeightRequest="50"
+        TextChanged="OnSaleHospitalNameEditorTextChanged"
+        Completed="OnSaleHospitalEditorCompleted" />
+        <Label Text="お名前" />
+        <Editor x:Name="buyAccountName"
+        Placeholder="購入したときの名前を入力してください"
+        HeightRequest="50"
+        TextChanged="OnBuyAccountNameEditorTextChanged"
+        Completed="OnBuyAccountEditorCompleted" />
+        <Label Text="性別" />
+        <Label Text="生年月日" />
+        <Editor x:Name="targetBirthDay"
+        Placeholder="お薬の対象者の生年月日を入力してください"
+        HeightRequest="50"
+        TextChanged="OnTargetBirthDayEditorTextChanged"
+        Completed="OnTargetBirthDayEditorCompleted" />
+
+        <Button Text="お薬手帳履歴を登録" Clicked="LearnMore_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>
