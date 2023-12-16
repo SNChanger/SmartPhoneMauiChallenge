@@ -73,7 +73,9 @@ sequenceDiagram
 ##### Consultation result input screen
 ###### Screen overview
 Enter details at the time of consultation
+
 ####### Input items
+
 Click on the displayed building information to move to the detailed screen
 
    Pharmacy name(Branch name)
