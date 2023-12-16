@@ -12,35 +12,35 @@
             <Label FontSize="22" Text="v1.0" VerticalOptions="End" />
         </HorizontalStackLayout>
 
-        <Label Text="....さんの記録" />
+        <Label Text="....'s record" />
         <Label Text="xxxx/xx/xx" />
-        <Label Text="調剤実施日" />
-        <Label Text="薬局名" />
+        <Label Text="Dispensing date" />
+        <Label Text="Pharmacy name" />
         <Editor x:Name="saleStoreName"
-        Placeholder="購入したときの薬局名を入力してくださいs"
+        Placeholder="Please enter the pharmacy name at the time of purchase."
         HeightRequest="50"
         TextChanged="OnStoreNameEditorTextChanged"
         Completed="OnStoreNameEditorCompleted" />        
-        <Label Text="医療機関名" />
+        <Label Text="Medical institution name" />
         <Editor x:Name="saleHospitalName"
-        Placeholder="法人名を入力してください"
+        Placeholder="Please enter your company name"
         HeightRequest="50"
         TextChanged="OnSaleHospitalNameEditorTextChanged"
         Completed="OnSaleHospitalEditorCompleted" />
-        <Label Text="お名前" />
+        <Label Text="name" />
         <Editor x:Name="buyAccountName"
-        Placeholder="購入したときの名前を入力してください"
+        Placeholder="Please enter the name you used when purchasing"
         HeightRequest="50"
         TextChanged="OnBuyAccountNameEditorTextChanged"
         Completed="OnBuyAccountEditorCompleted" />
-        <Label Text="性別" />
-        <Label Text="生年月日" />
+        <Label Text="sexual" />
+        <Label Text="birthday" />
         <Editor x:Name="targetBirthDay"
-        Placeholder="お薬の対象者の生年月日を入力してください"
+        Placeholder="Please enter the date of birth of the person receiving the medicine."
         HeightRequest="50"
         TextChanged="OnTargetBirthDayEditorTextChanged"
         Completed="OnTargetBirthDayEditorCompleted" />
 
-        <Button Text="お薬手帳履歴を登録" Clicked="LearnMore_Clicked" />
+        <Button Text="Register your medication notebook history" Clicked="LearnMore_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

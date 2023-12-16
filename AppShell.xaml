@@ -8,19 +8,19 @@
 
    <TabBar>
         <ShellContent
-            Title="個人メモ"
+            Title="personal memo"
             ContentTemplate="{DataTemplate local:MainPage}"
             Icon="icon_notes" />
         <ShellContent
-            Title="お薬一覧"
+            Title="List of medicines"
             ContentTemplate="{DataTemplate local:ItemList}"
             Icon="icon_about" />
         <ShellContent
-            Title="施設を探す"
+            Title="Find a facility"
             ContentTemplate="{DataTemplate local:HospitalSearch}"
             Icon="icon_notes" />
         <ShellContent
-            Title="受診結果入力"
+            Title="Input result of medical examination"
             ContentTemplate="{DataTemplate local:ReviewData}"
             Icon="icon_notes" />
 

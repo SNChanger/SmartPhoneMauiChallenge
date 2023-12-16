@@ -1,22 +1,22 @@
-#このプロジェクトについて
+#project overview
 
-Spajamでみんながスマホアプリを進めていたからやってみたよ。
+It's a repository where I tried out a framework while other people were developing it on Spajam.
 
-## 技術構成
+## Technical configuration
 
-### 開発環境
+### Development environment
 
-VisualStudio2022対応
+Visual Studio 2022 compatible
 
-### 各ページの作成
+### Creating each page
 
-.Net MAUIのテンプレートファイルを使って作成
+Created using .Net MAUI template file
 
-### 資料作成時の参考資料
+### Reference materials when creating materials
 
 https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
 
-### メニュー画面の最終的な遷移(ReleasePlan LastFlow)
+### ReleasePlan LastFlow
 ```mermaid
 flowchart LR
     subgraph App
@@ -29,70 +29,71 @@ flowchart LR
     end
 User --> App --> Display
 ```
-#### 各画面の実装予定内容
-##### 過去の受診内容一覧
-##### 画面側概要
-入力画面で保存した内容の受診履歴一覧を表示する
-受診履歴をクリックすることで詳細画面へ遷移する
-##### データ遷移
+#### Planned implementation details for each screen
+##### List of past consultations
+##### Screen side overview
+Display the consultation history list of saved contents on the input screen
+Click on the consultation history to go to the details screen
+
+##### data transition
 ```mermaid
 sequenceDiagram
-    participant イベント元プログラム
-    participant お薬一覧取得
-    participant 保存先
-    イベント元プログラム->>お薬一覧取得: 指定したアカウントの受診結果一覧取得を呼び出し
-    お薬一覧取得->>保存先: 指定したアカウントの受診結果一覧取得命令を実行
-    保存先->>お薬一覧取得: 指定したアカウントの受診結果一覧取得命令の実行結果を返却
-    お薬一覧取得->>イベント元プログラム: 指定したアカウントの受診結果一覧取得結果を返却
-    loop １ページに表示するデータ分
-    イベント元プログラム->>イベント元プログラム: 取得した一覧について、XAML側に反映する
+    participant Event source program
+    participant Get medicine list
+    participant Destination
+    Event source program->>Get medicine list: Call to obtain a list of examination results for the specified account
+    Get medicine list->>Destination: Execute the command to obtain a list of examination results for the selected account
+    Destination->>Get medicine list: Returns the execution results of the command to obtain a list of consultation results for the selected account.
+    Get medicine list->>Event source program: Returns the results of the selected account's consultation results list
+    loop Display data per page
+    Event source program->>Event source program: Regarding the acquisition list, reflected on the XAML side
     end
 ```
-##### 建物検索画面
-##### 画面側概要
-指定した条件で、お薬をもらえる画面
-表示された建物情報をクリックすることで詳細画面へ遷移する
-##### データ遷移
+##### Building search screen
+##### Screen overview
+A screen where you can receive medicine under specified conditions
+Click on the displayed building information to move to the details screen
+##### data transition
 ```mermaid
 sequenceDiagram
-    participant イベント元プログラム
-    participant 建物概要一覧
-    participant 保存先
-    イベント元プログラム->>イベント元プログラム: 欲しい処方箋の内容に合わせた、検索条件を入力する
-    イベント元プログラム->>建物概要一覧取得: 建物概要一覧取得を呼び出し
-    建物概要一覧取得->>保存先: 建物概要一覧取得命令を実行
-    保存先->>建物概要一覧取得: 建物概要一覧取得命令を実行結果を返却
-    建物概要一覧取得->>イベント元プログラム: 検索結果に応じた画面内容を返却する
-    loop １ページに表示するデータ分
-    イベント元プログラム->>イベント元プログラム: 取得した建物情報について、XAML側に反映する
+    participant Event source program
+    participant Building overview list
+    participant Destination
+    Event source program->>Event source program: Enter search conditions according to the prescription you want
+    Event source program->>Get building overview list: Call to get building overview list
+    Get building overview list->>Destination: Execute building outline list acquisition command
+    Destination->>Get building overview list: Execute the building summary list acquisition command and return the results
+    Get building overview list->>Event source program: Returns screen contents according to search results
+    loop Display data per page
+    Event source program->>Event source program: Reflect the acquired building information on the XAML side
     end
 ```
 
 
-##### 受診結果入力画面
-##### 画面側概要
-受診した時の内容を入力する
-###### 入力項目
-表示された建物情報をクリックすることで詳細画面へ遷移する
+##### Consultation result input screen
+###### Screen overview
+Enter details at the time of consultation
+####### Input items
+Click on the displayed building information to move to the detailed screen
 
-   薬局名(〇〇支店名)
-   医療機関名(△△大学病院)
-   お名前(購入時の名前　代理人とか本人の名前とか)
-   生年月日(対象者の誕生日 アカウントページができたら移動予定)
+   Pharmacy name(〇〇Branch name)
+   Medical institution name(△△University Hospital)
+   name(Name at the time of purchase, name of agent or principal)
+   date of birth(Target person's birthday Will be moved once the account page is created)
 
 
-##### データ遷移
+##### data transition
 ```mermaid
 sequenceDiagram
-    participant イベント元プログラム
-    participant 受診内容保存
-    participant 保存先(受診結果保存DB)
-    イベント元プログラム->>イベント元プログラム: 受診したときの入力内容を反映する
-    イベント元プログラム->>受診内容保存: 受診したときの内容を引数に、受診内容保存を呼び出し 
-    受診内容保存->>保存先: 受診結果保存DBへの反映処理を実行
-    保存先->>受診内容保存: 受診内容保存を実行結果を返却
-    受診内容保存->>イベント元プログラム: 入力内容の保存結果を返却
-    イベント元プログラム->>イベント元プログラム: 保存実行結果を画面のダイアログに反映する
+    participant Event source program
+    participant Save consultation details
+    participant Destination(Medical examination results storage DB)
+    Event source program->>Event source program: Reflect the information entered when visiting the doctor
+    Event source program->>Save consultation details: Call to save the consultation details using the contents of the consultation as an argument.
+    Save consultation details->>Destination: Execute the process of reflecting the consultation results in the DB
+    Destination->>Save consultation details: Save the consultation details and return the results
+    Save consultation details->>Event source program: Save input results and return
+    Event source program->>Event source program: Reflect the save execution result in the screen dialog
 ```
 
 
