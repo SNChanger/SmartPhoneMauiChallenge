@@ -76,8 +76,8 @@ Enter details at the time of consultation
 ####### Input items
 Click on the displayed building information to move to the detailed screen
 
-   Pharmacy name(ÅZÅZBranch name)
-   Medical institution name(Å¢Å¢University Hospital)
+   Pharmacy name(Branch name)
+   Medical institution name(University Hospital)
    name(Name at the time of purchase, name of agent or principal)
    date of birth(Target person's birthday Will be moved once the account page is created)
 
